@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <form name="form" id="form">
+        <label for="">Last name</label>
+        <input type="text" placeholder="Enter First name">
+        <p></p>
+        <label for="">Last name</label>
+        <input type="text" placeholder="Enter Last name">
+        <p></p>
+        <button>submit</button>
+    </form>
+    <script>
+        // console.log(document.forms["form"])
+        let a = document.getElementById("form");
+
+        a.addEventListener("submit", (event)=> {
+            event.preventDefault()
+            let b = document.getElementsByTagName("input")
+            let message = document.getElementsByTagName("p")
+            var errorDetect = false;
+            for(let a =0; a<b.length; a++){
+                let values = b[a].value
+                if(values.length == 0){
+                    message[a].textContent = "This input is emty"
+                    message[a].style.color="red"
+                    errorDetect = true
+                }
+                else{
+                    b[a].value=""
+                    message[a].textContent = ""
+                    console.log("done")
+                }
+            }
+            if(!errorDetect){
+                alert("SUBMITTED")
+            }
+            
+        })
+        
+    </script>
+</body>
+</html>
